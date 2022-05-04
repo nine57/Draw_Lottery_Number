@@ -1,6 +1,7 @@
 import requests
 import random
 
+from django.db import transaction
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from drf_yasg import openapi
@@ -8,6 +9,7 @@ from drf_yasg.utils import swagger_auto_schema
 
 from .serializers import NumberSerializer
 from .models import Number
+
 
 # for dev #TODO
 WEIGHT = [143, 136, 134, 139, 130, 126, 133, 131, 106, 139, 134, 142, 144, 142, 135, 131, 144, 147, 133, 140, 135, 114,
@@ -36,12 +38,18 @@ class DrawNumberView(APIView):
         return Response({"result": wins}, status=200)
 
 
-# class StatisticsView(APIView):
-#     def get(self, request):
-#         pass
+class GetNumberView(APIView):
+    @transaction.atomic()
+    def post(self, request):
 
-#     def post(self, request):
-#         URL = DRAWN_NUMBER_API+'1'
-#         response = requests.post(URL)
+        URL = DRAWN_NUMBER_API+'1'
+        req = requests.get(URL).json()
 
-#         serializer = NumberSerializer()
+        print(req)
+
+        serializer = NumberSerializer(data=req)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"result": "updated"})
+
+        return Response(serializer.errors)

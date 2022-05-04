@@ -1,5 +1,5 @@
 from pathlib import Path
-from env import DATABASES, LOGGING
+from env import DATABASES
 import pymysql
 
 pymysql.install_as_MySQLdb()
@@ -16,6 +16,8 @@ SECRET_KEY = 'django-insecure-lj-71)dmj%l0=2swiob16r-2y120tb1-hf$mgz@00n3cype!^v
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# from env import  LOGGING
+# LOGGING = LOGGING
 
 APPEND_SLASH = False
 
@@ -152,5 +154,3 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser'
     ]
 }
-
-LOGGING = LOGGING

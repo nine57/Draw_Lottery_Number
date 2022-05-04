@@ -22,10 +22,10 @@ class Number(models.Model):
         return 'Draw' + str(self.drwNo)
 
 
-# class DrawnRatio(models.Model):
-#     number = models.PositiveIntegerField()
-#     drw_count = models.PositiveIntegerField()
-#     bonus_count = models.PositiveIntegerField()
+class DrawnCount(models.Model):
+    number = models.PositiveIntegerField()
+    drw_count = models.PositiveIntegerField()
+    bonus_count = models.PositiveIntegerField()
 
-#     class Meta:
-#         db_table = "drawn_ratios"
+    class Meta:
+        db_table = "drawn_counts"
