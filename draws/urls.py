@@ -1,8 +1,8 @@
 from django.urls import path
-from draws.views import DrawNumberView
-# , StatisticsView
+
+from draws.views import NumberView, CountView
 
 urlpatterns = [
-    path('', DrawNumberView.as_view()),
-    # path('/patch', StatisticsView.as_view()),
+    path('', NumberView.as_view()),
+    path('/update', CountView.as_view()),
 ]

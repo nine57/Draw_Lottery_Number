@@ -1,10 +1,15 @@
 from django.contrib import admin
 
-from .models import Number
+from draws.models import Number, Count
 
 
 class NumberAdmin(admin.ModelAdmin):
-    list_display = "__all__"
+    pass
+
+
+class CountAdmin(admin.ModelAdmin):
+    pass
 
 
 admin.site.register(Number)
+admin.site.register(Count)
