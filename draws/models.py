@@ -15,17 +15,16 @@ class Number(models.Model):
     drwtNo6 = models.PositiveIntegerField()
     bnusNo = models.PositiveIntegerField()
 
-    class Meta:
-        db_table = "numbers"
-
     def __str__(self):
         return 'Draw' + str(self.drwNo)
 
+    class Meta:
+        db_table = "numbers"
 
-class DrawnCount(models.Model):
-    number = models.PositiveIntegerField()
-    drw_count = models.PositiveIntegerField()
-    bonus_count = models.PositiveIntegerField()
+
+class Count(models.Model):
+    cnt = models.PositiveIntegerField(default=0)
+    bns = models.PositiveIntegerField(default=0)
 
     class Meta:
-        db_table = "drawn_counts"
+        db_table = "counts"

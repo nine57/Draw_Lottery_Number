@@ -1,7 +1,8 @@
 from django.urls import path
-from draws.views import DrawNumberView, GetNumberView
+
+from draws.views import NumberView, CountView
 
 urlpatterns = [
-    path('', DrawNumberView.as_view()),
-    path('/update', GetNumberView.as_view()),
+    path('', NumberView.as_view()),
+    path('/update', CountView.as_view()),
 ]
