@@ -10,41 +10,48 @@ from draws.serializers import NumberSerializer
 from draws.models import Number, Count
 
 
-# for dev #TODO
-WEIGHT = [143, 136, 134, 139, 130, 126, 133, 131, 106, 139, 134, 142, 144, 142, 135, 131, 144, 147, 133, 140, 135, 114,
-          121, 135, 129, 132, 145, 124, 123, 121, 135, 114, 140, 152, 125, 134, 140, 133, 145, 141, 123, 133, 146, 135, 140]
-DRAWN_NUMBER_API = 'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo='
-LAST_UPDATE = ''
-UPDATED_NO = 1
-
-
 class NumberView(APIView):
+    def get_weight(self):
+        counts = Count.objects.all()[:]
+        weight = [1]*45
+
+        for count in counts:
+            idx = count.id-1
+            cnt = count.cnt
+            weight[idx] = cnt
+        return weight
+
     @swagger_auto_schema(operation_description="Get Random Number")
     def get(self, request):
-        except_numbers = request.GET.get('except', None)
-        print(except_numbers, type(except_numbers))
+        WEIGHT = self.get_weight()
+
+        dmnd = request.GET.getlist('dmnd', None)
+        dmnd = list(map(int, dmnd))
 
         number_pool = list(range(1, 46))
-        wins = []
-        weight = WEIGHT[:]
+        wins = [] + dmnd
+        count = 0 + len(dmnd)
+        while count < 6:
+            draw = random.choices(number_pool, weights=WEIGHT)[0]
+            if draw in wins:
+                continue
+            wins.append(draw)
+            count += 1
 
-        for _ in range(6):
-            draw = random.choices(number_pool, weights=weight)
-            idx = number_pool.index(draw[0])
-            weight.pop(idx)
-            wins.append(number_pool.pop(idx))
-
+        wins.sort()
         return Response({"result": wins}, status=200)
 
 
 class CountView(APIView):
+    DRAWN_NUMBER_API = 'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo='
+
     @transaction.atomic()
     def get(self, request):
         last_update = Number.objects.last()
         num = last_update.drwNo+1
 
         while True:
-            URL = DRAWN_NUMBER_API+str(num)
+            URL = self.DRAWN_NUMBER_API+str(num)
             req = requests.get(URL).json()
             return_checker = req.get("returnValue", None)
             if return_checker != 'success':
@@ -96,7 +103,7 @@ class CountView(APIView):
 
     # # for setting the first draw
     # def get(self, request):
-    #     URL = DRAWN_NUMBER_API+'1'
+    #     URL = self.DRAWN_NUMBER_API+'1'
     #     req = requests.get(URL).json()
     #     serializer = NumberSerializer(data=req)
     #     if serializer.is_valid():
