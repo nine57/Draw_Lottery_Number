@@ -25,10 +25,10 @@ h1{
 .wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 85vh;
-    margin-top: 1rem;
+    height: 80vh;
+    margin-top: 50px;
 }
 .title {
     color: rgba(160, 252, 255, 0.8);
