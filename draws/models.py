@@ -28,3 +28,6 @@ class Count(models.Model):
 
     class Meta:
         db_table = "counts"
+
+    def __str__(self):
+        return 'No.' + str(self.id)
