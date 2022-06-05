@@ -1,88 +1,50 @@
-/* common */
-html, body{
+html, body {
     margin:0;
     padding:0;
 }
-h1, p{
+h1{
     margin:0;
 }
-a{
-    color: inherit;
-    text-decoration: none;
-}
-.main{
+.background {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     width: 100vw;
     height: 100vh;
     font-family: 'Architects Daughter', cursive;
+    background-image: url(https://nine57.github.io/MyPage-NINE.html/main.jpg);
 }
-.top-code{
-    font-size: 20px;
+.wrapper {
+    margin-top: 10%;
+}
+
+.top {
+    font-size: 30px;
     padding-top: 20px;
     padding-left: 20px;
     font-weight: bold;
-    float: left;
-    width: 50%;
-    box-sizing: border-box;
-}
-.top-list{
-    font-size: 20px;
-    padding-top: 20px;
-    text-align: right;
-    float: right;
-    width: 50%;
-    box-sizing: border-box;   
-}
-.top-list a{
-    padding-right:50px;
-}
+    /* float: left; */
+    /* width: 50%; */
+    /* box-sizing: border-box; */
+    color: rgba(250, 100, 100, 0.7);
 
-/* index css */
-#main1{
-    background-image: url(https://nine57.github.io/MyPage-NINE.html/main.jpg);
 }
-#contents{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
+.title {
+    position: relative;
+    color: rgba(160, 252, 255, 0.8);
     text-align: center;
-}
-
-/* draw page css */
-#main2{
-    background-image: url(harry.jpeg);
-}
-#top-code2{
-    color: rgba(2, 0, 73, 0.8);
-}
-#top-list2{
-    color: rgba(179, 231, 255, 0.5);
-}
-#para{
-    color: rgba(2, 0, 73, 0.8);
-    padding-top: 90px;
-    padding-left: 50px;
-}
-#para p{
-    padding-top: 50px;
-    font-family: 'Stylish', sans-serif;
-    font-size: 28px;
-}
-
-/* full */
-#contents h1{
-    color: rgba(160, 252, 255, 0.5);
-    font-size: 70px;
-    margin-bottom: 500px;
-    margin-top: 15px;
-}
-#contents p{
-    color: rgba(0, 0, 49, 0.85);
+    width: 100%;
     font-size: 50px;
+    /* position: absolute; */
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    /* margin-bottom: 300px; */
 }
-#top-code1{
-    color: rgba(250, 121, 121, 0.6);
+.sub-title {
+    position: relative;
+    margin-top: 40%;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    width: 100%;
+    font-size: 40px;
 }
