@@ -39,7 +39,7 @@ a{
     padding-right:50px;
 }
 
-/* index page */
+/* index css */
 #main1{
     background-image: url(https://nine57.github.io/MyPage-NINE.html/main.jpg);
 }
@@ -50,20 +50,6 @@ a{
     width: 100%;
     text-align: center;
 }
-#contents h1{
-    color: rgba(160, 252, 255, 0.5);
-    font-size: 70px;
-    margin-bottom: 500px;
-    margin-top: 15px;
-}
-#contents p{
-    color: rgba(0, 0, 49, 0.85);
-    font-size: 50px;
-}
-#top-code1{
-    color: rgba(250, 121, 121, 0.6);
-}
-
 
 /* draw page css */
 #main2{
@@ -84,4 +70,19 @@ a{
     padding-top: 50px;
     font-family: 'Stylish', sans-serif;
     font-size: 28px;
+}
+
+/* full */
+#contents h1{
+    color: rgba(160, 252, 255, 0.5);
+    font-size: 70px;
+    margin-bottom: 500px;
+    margin-top: 15px;
+}
+#contents p{
+    color: rgba(0, 0, 49, 0.85);
+    font-size: 50px;
+}
+#top-code1{
+    color: rgba(250, 121, 121, 0.6);
 }

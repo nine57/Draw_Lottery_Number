@@ -41,7 +41,7 @@ class NumberView(APIView):
             count += 1
 
         wins.sort()
-        return render(request, "number.html", {"wins": wins}, status=200)
+        return render(request, "draws.html", {"wins": wins}, status=200)
         # return Response({"result": wins}, status=200)
 
 

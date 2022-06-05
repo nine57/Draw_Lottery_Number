@@ -1,21 +1,26 @@
 <!doctype html>
 <html>
     <head>
+        {% load static %}
         <title>Lotto</title>
         <meta charset = "utf-8">
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Stylish&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
-        <link href="style.css" rel = "stylesheet" />
+        <link rel="stylesheet" href="{% static 'style.css' %}">
     </head>
-    <h1>Random Number</h1>
-
-        {% for number in wins %}
-        
-        <li>{{ number }}</li>
-        
-        {% endfor %}
+    <body>
+        <div class="main" id="main1">
+            <div id="contents">
+                <h1>Numbers!</h1>
+                
+                {% for number in wins %}
+                <li>- {{ number }}</li>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
 </html>
 
 
