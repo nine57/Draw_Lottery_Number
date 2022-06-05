@@ -1,6 +1,8 @@
+from django.http import HttpResponse
 import requests
 import random
 
+from django.shortcuts import render
 from django.db import transaction
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -39,7 +41,8 @@ class NumberView(APIView):
             count += 1
 
         wins.sort()
-        return Response({"result": wins}, status=200)
+        return render(request, "number.html", {"wins": wins}, status=200)
+        # return Response({"result": wins}, status=200)
 
 
 class CountView(APIView):
@@ -125,3 +128,4 @@ class CountView(APIView):
     #         draw.bns = 0
     #         draw.save()
     #     return Response({"result": "Success"})
+
