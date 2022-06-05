@@ -26,10 +26,8 @@ class NumberView(APIView):
     @swagger_auto_schema(operation_description="Get Random Number")
     def get(self, request):
         WEIGHT = self.get_weight()
-
         dmnd = request.GET.getlist('dmnd', None)
         dmnd = list(map(int, dmnd))
-
         number_pool = list(range(1, 46))
         wins = [] + dmnd
         count = 0 + len(dmnd)
@@ -39,7 +37,6 @@ class NumberView(APIView):
                 continue
             wins.append(draw)
             count += 1
-
         wins.sort()
         return render(request, "draws.html", {"wins": wins}, status=200)
         # return Response({"result": wins}, status=200)

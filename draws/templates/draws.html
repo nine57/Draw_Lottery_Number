@@ -8,43 +8,23 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Stylish&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="{% static 'draw.css' %}">
     </head>
     <body>
-        <div class="main" id="main1">
-            <div id="contents">
-                <h1>Numbers!</h1>
-                
-                {% for number in wins %}
-                <li>- {{ number }}</li>
-                {% endfor %}
+        <div class="back">
+            <div class="top">
+                Lotto
+            </div>
+            <div class="main">
+                <div class="wrapper">
+                    <h1 class="title">Numbers!</h1>
+                    <ul class="list">
+                        {% for number in wins %}
+                        <li>- {{ number }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     </body>
 </html>
-
-
-
-<!-- <html>
-    <head>
-        <title>Lotto</title>
-        <meta charset = "utf-8">
-        <link rel="preconnect" href="https://fonts.googleapis.com"> 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-        <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Stylish&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
-        <link href="style.css" rel = "stylesheet" />
-    </head>
-    <body>
-        <div class = "main" id = "main1">
-            <div class = "top-code" id = "top-code1">
-                <a href = "number.html">Draw Number</a>
-            </div>    
-            <div id = "contents" style="cursor: pointer;" onclick="location.href='draw.html'">
-                <h1>Random Number</h1>
-                <h2>for Lotto 6/45</h2>
-                <p>{{message}}</p>
-            </div>
-        </div>
-    </body>
-</html> -->
