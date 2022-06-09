@@ -99,6 +99,27 @@ class CountView(APIView):
 
         return Response({"result": "Success"})
 
+
+class SetUpView(APIView):
+    DRAWN_NUMBER_API = 'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo='
+
+    @transaction.atomic()
+    def get(self, request):
+        URL = self.DRAWN_NUMBER_API+'1'
+        req = requests.get(URL).json()
+        serializer = NumberSerializer(data=req)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"result": "Success"})
+        return Response(serializer.errors)
+
+    @transaction.atomic()
+    def post(self, request):
+        for _ in range(45):
+            Count.objects.create(cnt=0)
+        return Response({"result": "Success"})
+
+
     # ------------------for setting up------------------
 
     # # for setting the first draw
