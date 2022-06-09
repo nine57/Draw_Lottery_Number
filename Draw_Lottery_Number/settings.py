@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from env import SECRET_KEY
+from env import DATABASES, SECRET_KEY
 import pymysql
 
 pymysql.install_as_MySQLdb()
@@ -80,13 +80,15 @@ WSGI_APPLICATION = 'Draw_Lottery_Number.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = DATABASES
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+#         # 'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
